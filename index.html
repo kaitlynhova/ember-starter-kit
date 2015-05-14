@@ -45,7 +45,9 @@
     {{#each}}
       <div class="row">
         <div class="col-md-4">
-        {{title}} <small>by {{author.name}}</small>
+          {{#link-to 'post' this}}
+            {{title}} <small>by {{author.name}}</small>
+          {{/link-to}}
         </div>
         <div class="col-md-8">
           {{outlet}}
@@ -54,6 +56,13 @@
     {{/each}}
   </script>
 
+  <script type="text/x-handlebars" id="post">
+    <h2>{{title}}</h2>
+    <p>{{date}}</p>
+    <p>by {{authod.name}}</p>
+
+    <p>{{body}}</p>
+  </script>
 
 
   <script src="js/libs/jquery-1.10.2.js"></script>
